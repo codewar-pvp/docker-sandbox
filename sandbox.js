@@ -1,6 +1,4 @@
 const { VM } = require('vm2');
-const fs = require('fs');
-const path = require('path');
 
 const vm = new VM({
   timeout: 5000,
@@ -15,15 +13,16 @@ const vm = new VM({
 });
 
 try {
-  fs.writeFileSync(
-    path.join(__dirname, `sharedVol/testResults-${process.env.sandboxId}.json`),
-    vm.run(`(function() {
-    return {
-      userCodeResult: (${process.env.userCode})(),
-      userConsoleHistory: console.logHistory
-  }
-  })()`)
-  );
+  const result = vm.run(`
+  (
+    function() {
+      return {
+        userCodeResult: ((${process.env.userCode})()),
+        userConsoleHistory: console.logHistory
+      }
+    }
+  )()`);
+  console.log(JSON.stringify(result));
 } catch (error) {
   console.error(error);
 }
