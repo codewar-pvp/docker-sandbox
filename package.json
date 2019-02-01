@@ -1,0 +1,17 @@
+{
+  "name": "docker-sandbox",
+  "version": "1.0.0",
+  "description": "Docker image for sandbox container",
+  "main": "sandbox.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node sandbox.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^5.2.0",
+    "vm2": "^3.6.10"
+  }
+}
