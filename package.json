@@ -4,7 +4,7 @@
   "description": "Docker image for sandbox container",
   "main": "sandbox.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha \"./question.spec.js\" --require @babel/polyfill --require @babel/register >> /vol/results-${sandboxId}.txt",
     "start": "node sandbox.js"
   },
   "repository": {
@@ -17,5 +17,9 @@
     "chai": "^4.2.0",
     "mocha": "^5.2.0",
     "vm2": "^3.6.10"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2"
   }
 }
