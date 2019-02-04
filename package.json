@@ -4,9 +4,8 @@
   "description": "Docker image for sandbox container",
   "main": "sandbox.js",
   "scripts": {
-    "pretest": "mv /vol/question.spec-${sandboxId}.js ./question.spec-${sandboxId}.js; mv /vol/userCode-${sandboxId}.js ./userCode-${sandboxId}.js",
-    "test": "mocha ./question.spec-${sandboxId}.js --require @babel/polyfill --require @babel/register >> /vol/results-${sandboxId}.txt",
-    "start": "node sandbox.js"
+    "pretest": "mv /vol/question.spec-${sandboxId}.js ./question.spec-${sandboxId}.js & mv /vol/userCode-${sandboxId}.js ./userCode-${sandboxId}.js",
+    "test": "mocha ./question.spec-${sandboxId}.js --require @babel/polyfill --require @babel/register >> /vol/results-${sandboxId}.txt"
   },
   "repository": {
     "type": "git",
